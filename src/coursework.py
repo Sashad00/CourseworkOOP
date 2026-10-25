@@ -1,5 +1,5 @@
-import os
-from dotenv import load_dotenv
+#import os
+#from dotenv import load_dotenv
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
@@ -11,10 +11,14 @@ class Settings(BaseSettings):
         extra="ignore"              # Игнорировать лишние переменные в .env, которых нет в классе
     )
 
-class yadisk:
-    def __init__(self):
-        pass
+class YandexDiskClient:
+    API_BASE_URL = "https://cloud-api.yandex.net/v1/disk"
 
+    def __init__(self, ya_disk_token: str):
+        self.ya_disk_token = ya_disk_token
+
+    def get_resources(self, path):
+        pass
 
 def main():
     """Работа по курсу ООП"""
